@@ -5,15 +5,10 @@
     <b><%= data_br(Date.today) %></b>
 </p>
 
-<p>
-    <li>
-        <a href="/coins">Cadastro de Moedas</a>
-    </li>
-    <li>
-        <%= link_to "Cadastro de Moedas", coins_path %>
-    </li>
-</p>
+<%= render "menu"%>
 
 <p>Você está em ambiente de <b> <%= ambiente_rails %> </b></p>
 
-<p>Eu sou uma variável de instância/sessão: <%= @name %></p>
+<p>Passe na URL localhost:3000/<b>?key=value</b></p>
+<p>Eu sou uma variável de instância/sessão: <b><%= @my_name %></b></p>
+
