@@ -51,9 +51,9 @@ desc "Cadastra os Tipos de Mineração" #Descrição da task
 task add_mining_types: :environment do #name of task and its mode to run
   show_spinner("Cadastrando Tipos de Mineração no BD...") do 
     mining_types = [
-      {name: "Proof of Work", acronym: "PoW"},
-      {name: "Proof of Stake", acronym: "PoS"},
-      {name: "Proof of Capacity", acronym: "PoC"}
+      {description: "Proof of Work", acronym: "PoW"},
+      {description: "Proof of Stake", acronym: "PoS"},
+      {description: "Proof of Capacity", acronym: "PoC"}
     ]
     mining_types.each do |mining_type|        
       MiningType.find_or_create_by!(mining_type)
