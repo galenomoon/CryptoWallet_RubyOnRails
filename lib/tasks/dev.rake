@@ -19,7 +19,6 @@ end
     spinner = TTY::Spinner.new("[:spinner] #{msg_start}")
     spinner.auto_spin
     yield
-    %x(rails db:seed)
     spinner.success("(#{msg_end})")
   end
 end
