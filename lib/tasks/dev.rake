@@ -9,9 +9,8 @@ namespace :dev do
 
         show_spinner("Migrando as Tabelas") {%x(rails db:migrate)}
 
-        %x(rails dev:add_coins)
-        
         %x(rails dev:add_mining_types)
+        %x(rails dev:add_coins)
 
     else
       puts "Você não está em modo de desenvolvimento"
@@ -25,19 +24,22 @@ end
             {
                 description: "Bitcoin",
                 acronym: "BTC",
-                url_image: "https://i.pinimg.com/originals/d2/7e/8e/d27e8e720a42c6ef1210cca03a354034.jpg"
+                url_image: "https://i.pinimg.com/originals/d2/7e/8e/d27e8e720a42c6ef1210cca03a354034.jpg",
+                mining_type: MiningType.find_by(acronym: "PoW")
             },
 
             {
                 description: "Ethereum",
                 acronym: "ETH",
-                url_image: "https://d33wubrfki0l68.cloudfront.net/fcd4ecd90386aeb50a235ddc4f0063cfbb8a7b66/4295e/static/bfc04ac72981166c740b189463e1f74c/40129/eth-diamond-black-white.jpg"
+                url_image: "https://d33wubrfki0l68.cloudfront.net/fcd4ecd90386aeb50a235ddc4f0063cfbb8a7b66/4295e/static/bfc04ac72981166c740b189463e1f74c/40129/eth-diamond-black-white.jpg",
+                mining_type: MiningType.all.sample
             },  
 
             {
                 description: "Dash",
                 acronym: "DSH",
-                url_image: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/512/Dash-icon.png"
+                url_image: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/512/Dash-icon.png",
+                mining_type: MiningType.all.sample
             }    
         ]
         coins.each do |coin|        
